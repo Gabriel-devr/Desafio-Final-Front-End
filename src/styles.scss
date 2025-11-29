@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --primary: #7B1FA2;
+    --primary-light: #E1BEE7;
+    --primary-button: #9400FF;
+    --primary-dark: #4A148C;
+    --secondary: #00BFA5;
+
+    --bg-body: #F8F9FA;
+    --bg-card: #FFFFFF;
+
+    --font-main: 'Outfit', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+
+    --text-main: #2D3436;
+    --text-muted: #636E72;
+    --border: #E0E0E0;
+
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --radius: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
