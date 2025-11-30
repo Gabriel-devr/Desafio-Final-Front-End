@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { LoginFormComponent } from '../../components/login-form/login-form.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { RouterOutlet } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-login',
-  imports: [LoginFormComponent],
+  imports: [LoginFormComponent, FooterComponent, RouterOutlet],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

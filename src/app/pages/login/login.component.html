@@ -82,22 +82,22 @@
             </div>
             }
         </div>
-        <div class="communityr">
+        <div class="community">
             <div class="photos">
-                <img src="assets/pexels-gabby-k-7114420.jpg" alt="">
+                <img src="assets/pexels-fotios-photos-31081252.jpg" alt="">
             </div>
             <div class="community-explain">
 
-                <div>
-                    <h5>Nossa Comunidade</h5>
-                    <p>Você não está sozinho nessa jornada</p>
+                <div class="community-info">
+                    <span>Nossa Comunidade</span>
+                    <p class="jorney">Você não está sozinho nessa jornada</p>
                     <p>Nossa comunidade é formada por milhares de pessoas que enfrentam a fibromialgia diariamente. Aqui
                         você pode compartilhar suas experiências, aprender com os outros e encontrar o apoio que
                         precisa.</p>
                 </div>
                 <ul>
                     @for (item of community; track $index) {
-                    <li>
+                    <li class="list">
                         <span class="material-symbols-outlined">
                             check
                         </span>
@@ -114,3 +114,4 @@
         </div>
     </div>
 </main>
+<app-footer></app-footer>

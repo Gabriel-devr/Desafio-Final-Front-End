@@ -22,6 +22,7 @@ main {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 20px;
 
             img {
                 width: 700px;
@@ -319,34 +320,76 @@ main {
         }
     }
 
-    .community {
-        margin-top: 120px;
-        display: flex;
-        align-items: center;
 
-        .photos {
-            img {
-                width: 400px;
-            }
+}
+
+.community {
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    .photos {
+        img {
+            width: 400px;
+        }
+
+    }
+
+    .community-explain {
+        max-width: 500px;
+
+        span {
+            font-weight: 500;
+            font-size: 14px;
+            padding: 6px 10px;
+            border-radius: var(--radius);
+            background-color: var(--primary-light);
+
+            color: var(--primary);
 
         }
 
-        .community-explain {
-
-            h5 {
-                font-weight: 500;
-                font-size: 14px;
-                padding: 6px 10px;
-                border-radius: var(--radius);
-                background-color: var(--primary-light);
+        .community-info {
+            .jorney {
+                margin: 20px 0;
                 color: var(--primary);
-
             }
 
             p {
                 font-size: 12px;
                 color: var(--text-muted);
+                margin-bottom: 10px;
 
+
+            }
+        }
+
+        .list {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 10px;
+            margin: 14px 0 0 0;
+
+            span {
+                padding: 10px;
+                border-radius: 12px;
+            }
+
+
+            div {
+                font-size: 12px;
+
+                p {
+                    font-weight: bold;
+                }
+
+                p:last-child {
+                    color: var(--text-muted);
+                    font-weight: 500;
+                }
             }
         }
     }
