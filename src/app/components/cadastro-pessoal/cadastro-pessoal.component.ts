@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-cadastro-pessoal',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cadastro-pessoal.component.html',
   styleUrl: './cadastro-pessoal.component.scss'
 })
 export class CadastroPessoalComponent {
 
+  router = inject(Router)
+
+  login() {
+    alert("Logado")
+    this.router.navigate(['/feed'])
+  }
+
 }
+

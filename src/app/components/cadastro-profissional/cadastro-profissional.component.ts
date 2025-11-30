@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-profissional',
@@ -8,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class CadastroProfissionalComponent {
 
+  router = inject(Router)
+
+  login() {
+    alert("Logado")
+    this.router.navigate(['/feed'])
+  }
 }

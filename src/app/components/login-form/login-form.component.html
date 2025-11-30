@@ -20,7 +20,7 @@
             </div>
             <p>Esqueci minha Senha</p>
         </div>
-        <input class="button" type="button" value="Entrar" name="" id="">
+        <input (click)="login()" class="button" type="button" value="Entrar" name="" id="">
     </form>
     <div class="continue">
         <p>
@@ -36,6 +36,7 @@
     </div>
 
     <div class="create-account">
-        <p>Nao tem uma conta? <a routerLink="">Criar Conta</a></p>
+        <p>Não tem uma conta? <a routerLink="cadastro-pessoal">Criar Conta</a></p>
+        <p>Faça uma conta <a routerLink="cadastro-profissional">profissional</a></p>
     </div>
 </section>
