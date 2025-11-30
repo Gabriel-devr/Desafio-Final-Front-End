@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { LoginFormComponent } from '../../components/login-form/login-form.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -11,7 +12,13 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+
+  authService = inject(AuthService)
+
+  ngOnInit(): void {
+    this.authService.logout()
+  }
 
   icons: any[] = [
     { icon: 'group', p: 'Comunidade' },

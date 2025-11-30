@@ -5,11 +5,19 @@
         </div>
         <div class="nav-container">
             <ul class="nav">
+                @if(!authService.isLogged()) {
                 <li>Sobre</li>
                 <li>Sintomas</li>
                 <li>Tratamento</li>
                 <li>Apoio</li>
                 <li class="comunidade">Entrar na Comunidade</li>
+                }
+                @else {
+                <li routerLink="/feed">Feed</li>
+                <li routerLink="/encontros">Encontros</li>
+                <li routerLink="/perfil">Perfil</li>
+                <li (click)="sair()" style="cursor: pointer; color: red;">Sair</li>
+                }
             </ul>
         </div>
     </div>

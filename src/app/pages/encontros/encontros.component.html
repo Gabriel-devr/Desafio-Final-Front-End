@@ -9,10 +9,15 @@
         <div class="cards-grid">
             @for (item of encontros; track $index) {
             <article class="card">
-                <div class="card-image" [style.background-color]="item.imagemCor">
+                <div class="card-image" [style.background-color]="item.cor"
+                    [style.background-image]="item.imagem ? 'url(' + item.imagem + ')' : 'none'"
+                    style="background-size: cover; background-position: center;">
+
+                    @if (!item.imagem) {
                     <span class="material-symbols-outlined icon-placeholder">
                         event
                     </span>
+                    }
                 </div>
 
                 <div class="card-content">
@@ -33,10 +38,25 @@
             }
         </div>
         <div class="map-section">
-            <h3 class="mt-5 mb-3 text-center" style="color: var(--primary); font-family: var(--font-heading);">
-                Localização dos Encontros
+            <h3 class="mt-5 mb-4 text-center" style="color: var(--primary); font-family: var(--font-heading);">
+                Adicionar Novo Encontro
             </h3>
-            <app-mapa></app-mapa>
+
+            <div class="form-container"
+                style="max-width: 600px; margin: 0 auto 20px auto; display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" [(ngModel)]="novoTitulo" placeholder="Título do Encontro (ex: Yoga no Parque)"
+                    class="form-control-custom">
+                <textarea [(ngModel)]="novaDescricao" placeholder="Descrição breve do evento..." rows="2"
+                    class="form-control-custom"></textarea>
+
+                <p class="text-muted text-center small">
+                    <span class="material-symbols-outlined"
+                        style="vertical-align: middle; font-size: 18px;">touch_app</span>
+                    Preencha os dados acima e <strong>clique no mapa</strong> para definir o local e criar o evento.
+                </p>
+            </div>
+
+            <app-mapa (mapaClick)="adicionarNovoEncontro($event)"></app-mapa>
         </div>
     </div>
 </section>

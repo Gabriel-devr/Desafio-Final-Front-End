@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
@@ -8,7 +8,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
   styleUrl: './mapa.component.scss'
 })
 export class MapaComponent {
-  center: google.maps.LatLngLiteral = { lat: -23.550520, lng: -46.633309 };
+  center: google.maps.LatLngLiteral = { lat: -12.974722, lng: -38.476665 };
   zoom = 15;
 
   // Configuração do Marcador (Pin)
@@ -18,4 +18,13 @@ export class MapaComponent {
     title: "Local do Encontro",
     animation: google.maps.Animation.DROP // Animação de "cair"
   };
+
+  @Output() mapaClick = new EventEmitter<google.maps.LatLngLiteral>();
+
+  onMapClick(event: google.maps.MapMouseEvent) {
+    if (event.latLng) {
+      const coords = event.latLng.toJSON();
+      this.mapaClick.emit(coords);
+    }
+  }
 }
