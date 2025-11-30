@@ -1,1 +1,42 @@
-<p>encontros works!</p>
+<section class="encontros-section">
+    <div class="container">
+
+        <header class="section-header">
+            <h2>Próximos Encontros</h2>
+            <p>Participe de rodas de conversa e eventos online.</p>
+        </header>
+
+        <div class="cards-grid">
+            @for (item of encontros; track $index) {
+            <article class="card">
+                <div class="card-image" [style.background-color]="item.imagemCor">
+                    <span class="material-symbols-outlined icon-placeholder">
+                        event
+                    </span>
+                </div>
+
+                <div class="card-content">
+                    <span class="date">{{ item.data }}</span>
+                    <h3>{{ item.titulo }}</h3>
+                    <p class="location">
+                        <span class="material-symbols-outlined icon-small">
+                            {{ item.tipo === 'online' ? 'wifi' : 'location_on' }}
+                        </span>
+                        {{ item.local }}
+                    </p>
+
+                    <button class="btn-participar">
+                        Participar
+                    </button>
+                </div>
+            </article>
+            }
+        </div>
+        <div class="map-section">
+            <h3 class="mt-5 mb-3 text-center" style="color: var(--primary); font-family: var(--font-heading);">
+                Localização dos Encontros
+            </h3>
+            <app-mapa></app-mapa>
+        </div>
+    </div>
+</section>
