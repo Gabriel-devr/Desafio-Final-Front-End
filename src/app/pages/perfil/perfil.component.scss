@@ -1,0 +1,348 @@
+// Layout Base
+.background {
+    min-height: 100vh;
+    background-color: var(--bg-body);
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+// Cabeçalho com Gradiente (Estilo App Health)
+.profile-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #7b1fa2 100%);
+    border-radius: 24px;
+    padding: 40px 30px;
+    margin-top: 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(123, 31, 162, 0.2);
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    .header-stats {
+        display: flex;
+        gap: 20px;
+
+        .stat-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+
+            .value {
+                display: block;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            .label {
+                font-size: 0.8rem;
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+// Container principal sobe um pouco para sobrepor o header
+.container {
+    margin-top: 0;
+}
+
+// Cards Gerais
+.card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
+// Seletor de Humor
+.mood-selector {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .mood-option {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: #aaa;
+
+        span {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        &:hover {
+            background-color: #f8f9fa;
+        }
+
+        &.selected {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: bold;
+        }
+    }
+}
+
+// Lista de Histórico (Timeline Style)
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.history-card {
+    display: flex;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    border-left: 4px solid transparent; // Borda colorida opcional
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: translateX(5px);
+    }
+
+    .date-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-right: 15px;
+        border-right: 1px solid #eee;
+        min-width: 70px;
+
+        .day {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .month {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        .mood-icon {
+            color: #aaa;
+        }
+    }
+
+    .content-col {
+        padding-left: 15px;
+        flex: 1;
+
+        .stats-badges {
+            display: flex;
+            gap: 8px;
+
+            .badge {
+                padding: 5px 10px;
+                border-radius: 6px;
+                font-weight: 500;
+                color: white;
+            }
+        }
+    }
+}
+
+// Animação de entrada
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Mobile Adjustments
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .header-stats {
+            width: 100%;
+            justify-content: space-between;
+
+            .stat-box {
+                flex: 1;
+            }
+        }
+    }
+}
+
+.carousel-container {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto; // Permite rolagem horizontal
+    padding-bottom: 10px; // Espaço para não cortar sombra
+    padding-left: 5px;
+    padding-right: 5px;
+    scroll-behavior: smooth;
+
+    // Esconde a barra de rolagem (Estética clean)
+    scrollbar-width: none; // Firefox
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    // Chrome/Safari
+}
+
+.appointment-card {
+    flex: 0 0 auto; // Não encolhe nem estica
+    width: 200px;
+    height: 140px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    // Estilo específico do Card de Lista
+    &.item-card {
+        border-left: 4px solid #ccc; // Cor padrão, muda via inline style
+    }
+
+    .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+
+        .badge-type {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .icon-menu {
+            color: #ccc;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+    }
+
+    .card-date {
+        display: flex;
+        align-items: center;
+        font-size: 0.85rem;
+        color: #666;
+        background-color: #f8f9fa;
+        padding: 6px;
+        border-radius: 8px;
+
+        .icon-small {
+            font-size: 16px;
+            margin-right: 4px;
+        }
+    }
+}
+
+// --- CARD DE ADICIONAR (INTERATIVO) ---
+.add-card {
+    border: 2px dashed var(--primary-light); // Borda tracejada
+    background-color: rgba(var(--primary-rgb), 0.02); // Fundo super leve se possível, ou branco
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+    // Estado normal (Botão +)
+    .add-content {
+        text-align: center;
+        width: 100%;
+
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: 0.2s;
+        }
+
+        &:hover .icon-circle {
+            transform: scale(1.1);
+            background-color: var(--primary);
+            color: white;
+        }
+    }
+
+    // Estado Expandido (Formulário)
+    &.expanded {
+        width: 280px; // Fica mais largo para caber o form
+        height: auto; // Altura automática
+        border-style: solid;
+        border-color: var(--primary);
+        cursor: default;
+        justify-content: flex-start;
+        align-items: stretch;
+        z-index: 2; // Fica acima se houver sobreposição visual
+    }
+
+    .form-content {
+        animation: fadeIn 0.3s ease;
+
+        input,
+        select {
+            font-size: 0.85rem;
+        }
+    }
+}

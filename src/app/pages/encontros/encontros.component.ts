@@ -41,36 +41,31 @@ export class EncontrosComponent {
   ];
 
   adicionarNovoEncontro(coords: google.maps.LatLngLiteral) {
-    // Validação simples
     if (!this.novoTitulo || !this.novaDescricao) {
       alert('Por favor, preencha o Título e a Descrição antes de escolher o local no mapa.');
       return;
     }
 
-    // 3. Usar o Geocoder para buscar o endereço
     const geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ location: coords }, (results, status) => {
       if (status === 'OK' && results && results[0]) {
-        // Endereço encontrado!
         const enderecoFormatado = results[0].formatted_address;
 
         this.criarCard(coords, enderecoFormatado);
       } else {
-        // Falha ou sem resultados, usa coordenadas como fallback
         console.error('Geocoding falhou: ' + status);
         this.criarCard(coords, `Local (Lat: ${coords.lat.toFixed(4)}, Lng: ${coords.lng.toFixed(4)})`);
       }
     });
   }
 
-  // Função auxiliar para criar e adicionar o card
   criarCard(coords: google.maps.LatLngLiteral, endereco: string) {
     const novoEncontro = {
       data: 'Data a definir',
       titulo: this.novoTitulo,
       descricao: this.novaDescricao,
-      local: endereco, // Endereço escrito
+      local: endereco,
       tipo: 'presencial',
       imagem: this.gerarUrlMapa(coords.lat, coords.lng),
       cor: '#CFD8DC'
@@ -78,7 +73,6 @@ export class EncontrosComponent {
 
     this.encontros.unshift(novoEncontro);
 
-    // Limpar campos
     this.novoTitulo = '';
     this.novaDescricao = '';
 

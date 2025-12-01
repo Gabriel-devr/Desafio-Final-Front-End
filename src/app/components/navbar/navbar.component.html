@@ -1,24 +1,64 @@
 <div class="navbar-container">
-    <div class="navbar">
-        <div class="name">
-            <h1>FibroConnect</h1>
+    <div class="navbar-content">
+
+        <div class="left-section">
+            <h1 class="logo" routerLink="/feed">FibroConnect</h1>
         </div>
-        <div class="nav-container">
-            <ul class="nav">
-                @if(!authService.isLogged()) {
-                <li>Sobre</li>
-                <li>Sintomas</li>
-                <li>Tratamento</li>
-                <li>Apoio</li>
-                <li class="comunidade">Entrar na Comunidade</li>
-                }
-                @else {
-                <li routerLink="/feed">Feed</li>
-                <li routerLink="/encontros">Encontros</li>
-                <li routerLink="/perfil">Perfil</li>
-                <li (click)="sair()" style="cursor: pointer; color: red;">Sair</li>
-                }
-            </ul>
+
+        @if(authService.isLogged()) {
+        <div class="center-section">
+
+            <div class="nav-item" routerLink="/feed" routerLinkActive="active">
+                <span class="material-symbols-outlined">home</span>
+                <div class="tooltip">Feed</div>
+            </div>
+
+            <div class="nav-item" routerLink="/encontros" routerLinkActive="active">
+                <span class="material-symbols-outlined">location_on</span>
+                <div class="tooltip">Encontros</div>
+            </div>
+
         </div>
+        }
+
+        <div class="right-section">
+
+            @if(!authService.isLogged()) {
+            <div class="public-links">
+                <a href="#login" class="btn-login">Cadastre-se</a>
+            </div>
+            } @else {
+            <div class="circle-btn">
+                <span class="material-symbols-outlined">notifications</span>
+            </div>
+
+            <div class="profile-wrapper" (click)="toggleMenu()">
+                <div class="avatar-circle">
+                    <span>RA</span>
+                </div>
+
+                <div class="dropdown-menu" [class.show]="isMenuOpen">
+                    <div class="dropdown-header">
+                        <p class="user-name">Rondineli Andrade</p>
+
+                    </div>
+                    <hr>
+                    <a routerLink="/perfil" (click)="closeMenu()">
+                        <span class="material-symbols-outlined">person</span>
+                        Meu Perfil
+                    </a>
+                    <a (click)="sair()" class="logout-btn">
+                        <span class="material-symbols-outlined">logout</span>
+                        Sair
+                    </a>
+                </div>
+            </div>
+            }
+        </div>
+
     </div>
 </div>
+
+@if(isMenuOpen) {
+<div class="overlay-click" (click)="closeMenu()"></div>
+}
