@@ -1,0 +1,134 @@
+<div class="page-container">
+    <div class="container">
+
+        <header class="header-hero fade-in">
+            <div class="hero-content">
+                <div class="icon-bg">
+                    <span class="material-symbols-outlined">medical_services</span>
+                </div>
+                <h2>Encontre Especialistas em Fibromialgia</h2>
+                <p>Conecte-se com profissionais de saúde qualificados que entendem a sua jornada.</p>
+
+                <div class="actions">
+                    <button class="btn-advertise" (click)="toggleCadastro()">
+                        <span class="material-symbols-outlined">add_business</span>
+                        Sou Profissional e quero aparecer aqui
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section class="filters-section fade-in">
+            <div class="search-wrapper">
+                <span class="material-symbols-outlined icon">search</span>
+                <input type="text" [(ngModel)]="termoBusca" placeholder="Busque por nome, especialidade ou cidade...">
+            </div>
+
+            <div class="chips-container">
+                @for (esp of especialidades; track $index) {
+                <button class="chip" [class.active]="filtroEspecialidade === esp" (click)="filtroEspecialidade = esp">
+                    {{ esp }}
+                </button>
+                }
+            </div>
+        </section>
+
+        @if (exibirFormularioCadastro) {
+        <section id="form-section" class="registration-panel slide-down">
+            <div class="panel-header">
+                <h3>Cadastro Profissional</h3>
+                <button class="btn-close-custom" (click)="toggleCadastro()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Nome Completo *</label>
+                    <input type="text" [(ngModel)]="novoProfissional.nome" placeholder="Ex: Dra. Ana Souza" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Especialidade *</label>
+                    <select [(ngModel)]="novoProfissional.especialidade">
+                        <option *ngFor="let esp of especialidades | slice:1" [value]="esp">{{ esp }}</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Registro (CRM/CRP/Etc) *</label>
+                    <input type="text" [(ngModel)]="novoProfissional.registro" placeholder="Ex: 123456/SP" required>
+                </div>
+
+                <div class="input-group">
+                    <label>WhatsApp para Contato *</label>
+                    <input type="tel" [(ngModel)]="novoProfissional.telefone" placeholder="(71) 99999-9999" required>
+                    <small class="text-muted" style="font-size: 0.75rem;">Seu número será usado para o botão de
+                        contato.</small>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>Sobre seus serviços</label>
+                    <textarea [(ngModel)]="novoProfissional.descricao" rows="3"
+                        placeholder="Descreva sua abordagem, tratamentos, etc."></textarea>
+                </div>
+            </div>
+
+            <button class="btn-save" (click)="cadastrarServico()">
+                Divulgar Serviço Gratuitamente
+            </button>
+        </section>
+        }
+
+        <div class="cards-grid">
+            @for (pro of profissionaisFiltrados; track pro.id) {
+            <article class="pro-card">
+                <div class="card-header">
+                    <div class="avatar">
+                        @if (pro.foto) {
+                        <img [src]="pro.foto" alt="{{ pro.nome }}">
+                        } @else {
+                        <span>{{ pro.nome.charAt(0) }}</span>
+                        }
+                    </div>
+                    <div class="info">
+                        <div class="name-row">
+                            <h3>{{ pro.nome }}</h3>
+                            @if (pro.verificado) {
+                            <span class="material-symbols-outlined verified"
+                                title="Profissional Verificado">verified</span>
+                            }
+                        </div>
+                        <span class="specialty">{{ pro.especialidade }}</span>
+                        <span class="registry">{{ pro.registro }}</span>
+                    </div>
+                    <div class="rating">
+                        <span class="material-symbols-outlined star">star</span>
+                        <span>{{ pro.avaliacao }}</span>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <p class="description">{{ pro.descricao }}</p>
+                    <div class="location">
+                        <span class="material-symbols-outlined">location_on</span>
+                        {{ pro.localizacao }}
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button class="btn-contact" (click)="contatar(pro)">
+                        <i class="fa-brands fa-whatsapp"></i> Agendar via WhatsApp
+                    </button>
+                </div>
+            </article>
+            } @empty {
+            <div class="empty-state">
+                <span class="material-symbols-outlined">person_search</span>
+                <p>Nenhum profissional encontrado com esses filtros.</p>
+            </div>
+            }
+        </div>
+
+    </div>
+</div>

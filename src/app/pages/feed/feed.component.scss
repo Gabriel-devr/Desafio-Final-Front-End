@@ -1,4 +1,3 @@
-// 1. CORREÇÃO DO FUNDO CORTADO
 :host {
     display: block;
     min-height: 100vh;
@@ -15,7 +14,6 @@
     padding-bottom: 40px;
 }
 
-// 2. ESTILOS GERAIS (Cards, Botões)
 .card {
     border: none;
     border-radius: 16px;
@@ -42,7 +40,6 @@
     }
 }
 
-// 3. AVATARS E SIDEBAR
 .avatar-circle {
     width: 80px;
     height: 80px;
@@ -78,7 +75,6 @@
     font-weight: bold;
 }
 
-// 4. AÇÕES DO FEED (CURTIR/COMPARTILHAR)
 .actions-container {
     display: flex;
     gap: 20px;
@@ -105,13 +101,11 @@
         background-color: rgba(0, 0, 0, 0.05);
     }
 
-    // Ajuste para o ícone do Google
     .icon-adjust {
         font-size: 20px;
         line-height: 1;
     }
 
-    // ESTADO CURTIDO (VERMELHO + ANIMAÇÃO)
     &.liked {
         color: #e0245e;
 

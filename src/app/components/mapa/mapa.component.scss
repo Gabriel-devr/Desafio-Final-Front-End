@@ -1,8 +1,6 @@
 .map-container {
     border-radius: 16px;
-    /* ou var(--radius) se disponível globalmente */
     overflow: hidden;
-    /* Importante para o border-radius funcionar no mapa */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     margin-top: 20px;
 }

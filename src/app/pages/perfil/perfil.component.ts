@@ -19,8 +19,6 @@ export class PerfilComponent {
     diagnostico: 'Fibromialgia diagnosticada em 2022',
     bio: 'Buscando qualidade de vida através de exercícios leves e meditação.'
   };
-
-  // Variáveis do Formulário (Novo Registro)
   novoRegistro: RegistroDiario = {
     data: new Date(),
     nivelDor: 3,
@@ -59,17 +57,16 @@ export class PerfilComponent {
     }
   ];
 
-  // Histórico de Registros (Dados Iniciais)
   historico: RegistroDiario[] = [
     {
-      data: new Date(new Date().setDate(new Date().getDate() - 1)), // Ontem
+      data: new Date(new Date().setDate(new Date().getDate() - 1)),
       nivelDor: 4,
       nivelFadiga: 5,
       humor: 'triste',
       notas: 'Senti um pouco de dor nas costas após o trabalho.'
     },
     {
-      data: new Date(new Date().setDate(new Date().getDate() - 2)), // Anteontem
+      data: new Date(new Date().setDate(new Date().getDate() - 2)),
       nivelDor: 2,
       nivelFadiga: 3,
       humor: 'feliz',

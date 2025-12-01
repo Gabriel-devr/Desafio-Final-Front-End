@@ -7,7 +7,7 @@
 
 .navbar-container {
     background-color: #fff;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); // Sombra suave embaixo igual da imagem
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
     height: 60px;
     width: 100%;
     display: flex;
@@ -19,19 +19,18 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1920px; // Limite para telas ultra-wide
+    max-width: 1920px;
     padding: 0 16px;
 }
 
-// --- ESQUERDA (LOGO) ---
 .left-section {
-    flex: 1; // Ocupa espaço disponível
+    flex: 1;
     display: flex;
     align-items: center;
 
     .logo {
         font-family: var(--font-heading, sans-serif);
-        color: var(--primary); // Roxo do seu tema
+        color: var(--primary);
         font-size: 1.6rem;
         font-weight: 800;
         margin: 0;
@@ -40,51 +39,47 @@
     }
 }
 
-// --- CENTRO (NAVEGAÇÃO TIPO APP) ---
 .center-section {
-    flex: 2; // Ocupa mais espaço no centro
+    flex: 2;
     display: flex;
     justify-content: center;
     gap: 10px;
-    height: 100%; // Importante para a linha azul ficar embaixo
+    height: 100%;
 
     .nav-item {
         height: 100%;
-        width: 110px; // Largura fixa do botão
+        width: 110px;
         max-width: 140px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         position: relative;
-        color: #65676b; // Cinza padrão (estilo Facebook)
-        border-bottom: 3px solid transparent; // Prepara a borda
+        color: #65676b;
+        border-bottom: 3px solid transparent;
         transition: all 0.2s;
 
-        // Ícone
+
         .material-symbols-outlined {
             font-size: 28px;
         }
 
-        // Hover
         &:hover {
-            background-color: #f0f2f5; // Fundo cinza claro ao passar mouse
+            background-color: #f0f2f5;
             border-radius: 8px;
-            // Nota: No hover o background é arredondado, mas a borda active é quadrada
+
         }
 
-        // ESTADO ATIVO (Página Atual)
         &.active {
-            color: var(--primary); // Cor do ícone muda
-            border-bottom: 3px solid var(--primary); // Linha embaixo
-            border-radius: 0; // Remove arredondamento do hover pra linha ficar reta
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            border-radius: 0;
 
             &:hover {
-                background-color: transparent; // Remove fundo cinza no ativo
+                background-color: transparent;
             }
         }
 
-        // Tooltip (opcional)
         .tooltip {
             position: absolute;
             bottom: -30px;
@@ -104,7 +99,6 @@
     }
 }
 
-// --- DIREITA (AÇÕES) ---
 .right-section {
     flex: 1;
     display: flex;
@@ -112,13 +106,12 @@
     align-items: center;
     gap: 12px;
 
-    // Botões Redondos (Notificação e Perfil)
     .circle-btn,
     .avatar-circle {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: #e4e6eb; // Cinza claro dos botões
+        background-color: #e4e6eb;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -127,17 +120,16 @@
         color: #050505;
 
         &:hover {
-            background-color: #d8dadf; // Escurece um pouco no hover
+            background-color: #d8dadf;
         }
 
         .material-symbols-outlined {
-            font-size: 20px; // Ícone interno menor
+            font-size: 20px;
         }
     }
 
-    // Estilo específico do Avatar
     .profile-wrapper {
-        position: relative; // Para o dropdown ancorar aqui
+        position: relative;
 
         .avatar-circle {
             background-color: var(--primary-light, #e1bee7);
@@ -150,13 +142,12 @@
             }
         }
 
-        // MENU DROPDOWN (Igual ao anterior, ajustado posição)
         .dropdown-menu {
             position: absolute;
             top: 50px;
             right: 0;
             background-color: white;
-            width: 300px; // Mais largo como na imagem
+            width: 300px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             padding: 16px;
@@ -203,7 +194,7 @@
 
                 &.logout-btn {
                     margin-top: 5px;
-                    color: #e41e3f; // Vermelho para sair
+                    color: #e41e3f;
 
                     &:hover {
                         background-color: #fff0f2;
@@ -213,7 +204,6 @@
         }
     }
 
-    // Botão de login (Deslogado)
     .btn-login {
         background-color: var(--primary);
         color: white;
@@ -225,7 +215,6 @@
     }
 }
 
-// Overlay invisível
 .overlay-click {
     position: fixed;
     top: 0;
@@ -235,9 +224,8 @@
     z-index: 999;
 }
 
-// Responsividade: Em telas pequenas, esconde o centro ou adapta
 @media (max-width: 768px) {
     .center-section {
-        display: none; // Ou move para uma barra inferior (Mobile Tab Bar)
+        display: none;
     }
 }

@@ -23,6 +23,9 @@
                 <div class="card-content">
                     <span class="date">{{ item.data }}</span>
                     <h3>{{ item.titulo }}</h3>
+
+                    <p class="text-muted small mb-3">{{ item.descricao }}</p>
+
                     <p class="location">
                         <span class="material-symbols-outlined icon-small">
                             {{ item.tipo === 'online' ? 'wifi' : 'location_on' }}
@@ -37,23 +40,30 @@
             </article>
             }
         </div>
+
         <div class="map-section">
             <h3 class="mt-5 mb-4 text-center" style="color: var(--primary); font-family: var(--font-heading);">
                 Adicionar Novo Encontro
             </h3>
 
-            <div class="form-container"
-                style="max-width: 600px; margin: 0 auto 20px auto; display: flex; flex-direction: column; gap: 15px;">
-                <input type="text" [(ngModel)]="novoTitulo" placeholder="Título do Encontro (ex: Yoga no Parque)"
-                    class="form-control-custom">
-                <textarea [(ngModel)]="novaDescricao" placeholder="Descrição breve do evento..." rows="2"
-                    class="form-control-custom"></textarea>
+            <div class="card p-4 shadow-sm" style="max-width: 600px; margin: 0 auto 20px auto;">
+                <div class="d-flex flex-column gap-3">
+                    <h6 class="text-muted fw-bold mb-0">Dados do Evento</h6>
 
-                <p class="text-muted text-center small">
-                    <span class="material-symbols-outlined"
-                        style="vertical-align: middle; font-size: 18px;">touch_app</span>
-                    Preencha os dados acima e <strong>clique no mapa</strong> para definir o local e criar o evento.
-                </p>
+                    <input type="text" [(ngModel)]="novoTitulo" placeholder="Título do Encontro (ex: Yoga no Parque)"
+                        class="form-control-custom">
+
+                    <input type="date" [(ngModel)]="novaData" class="form-control-custom" title="Data do Encontro">
+
+                    <textarea [(ngModel)]="novaDescricao" placeholder="Descrição breve do evento..." rows="2"
+                        class="form-control-custom"></textarea>
+
+                    <p class="text-muted text-center small mb-0 mt-2">
+                        <span class="material-symbols-outlined"
+                            style="vertical-align: middle; font-size: 18px;">touch_app</span>
+                        Preencha os dados acima e <strong>clique no mapa</strong> abaixo para definir o local.
+                    </p>
+                </div>
             </div>
 
             <app-mapa (mapaClick)="adicionarNovoEncontro($event)"></app-mapa>

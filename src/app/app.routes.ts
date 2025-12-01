@@ -6,6 +6,9 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { FeedComponent } from './pages/feed/feed.component';
 import { EncontrosComponent } from './pages/encontros/encontros.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ProfissionalComponent } from './pages/profissional/profissional.component';
+import { authGuard } from './guards/auth.guard';
+import { loginGuard } from './guards/login.guard';
 
 export const routes: Routes = [
     {
@@ -16,6 +19,7 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
+        canActivate: [loginGuard],
         children: [
             {
                 path: '',
@@ -33,16 +37,27 @@ export const routes: Routes = [
     },
     {
         path: 'feed',
-        component: FeedComponent
+        component: FeedComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'encontros',
-        component: EncontrosComponent
+        component: EncontrosComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'perfil',
-        component: PerfilComponent
+        component: PerfilComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'profissionais',
+        component: ProfissionalComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: '**',
+        redirectTo: 'login'
     }
-
 
 ];
