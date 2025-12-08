@@ -1,117 +1,119 @@
-<main>
-    <section class="login-section">
-        <div class="left-side">
-            <img src="assets\pexels-gabby-k-7114420.jpg" alt="">
-            <div class="text">
-                <p>Uma comunidade que <strong>entende você</strong></p>
-                <p>Conecte-se com pessoas que vivem a mesma jornada. Compartilhe experiências, receba apoio e encontre
-                    esperança
-                    em nossa comunidade acolhedora.</p>
-            </div>
-            <div class="icons-container">
-                @for (item of icons; track $index) {
-                <div class="icons">
-                    <span class="material-symbols-outlined">
-                        {{item.icon}}
-                    </span>
-                    <p>{{item.p}}</p>
+<main class="page-wrapper">
+    <section class="login-split-section">
+        <div class="container">
+            <div class="split-content">
+
+                <div class="visual-side">
+                    <div class="image-wrapper">
+                        <img src="assets/pexels-gabby-k-7114420.jpg" alt="Comunidade FibroConnect">
+                    </div>
+                    <div class="text-content">
+                        <h2>Uma comunidade que <strong>entende você</strong></h2>
+                        <p>Conecte-se com pessoas que vivem a mesma jornada. Compartilhe experiências, receba apoio e
+                            encontre esperança.</p>
+                    </div>
+
+                    <div class="features-row">
+                        @for (item of icons; track $index) {
+                        <div class="feature-item">
+                            <span class="material-symbols-outlined">{{item.icon}}</span>
+                            <p>{{item.p}}</p>
+                        </div>
+                        }
+                    </div>
                 </div>
-                }
+
+                <div class="form-side">
+                    <router-outlet></router-outlet>
+                </div>
+
             </div>
-        </div>
-        <div>
-            <router-outlet></router-outlet>
         </div>
     </section>
-    <div class="hero">
-        <div class="container hero-content">
+
+    <section class="hero-section">
+        <div class="container">
             <h1>Juntos somos mais fortes contra a <span class="highlight">Fibromialgia</span></h1>
             <p>Informação confiável e uma comunidade que entende o que você sente.</p>
-            <div class="hero-btns">
-                <a href="#sobre" class="btn">Saiba Mais</a>
-                <a href="#login" class="btn">Participar</a>
+            <div class="hero-actions">
+                <a href="#sobre" class="btn-outline">Saiba Mais</a>
+                <a href="#login" class="btn-solid">Participar</a>
             </div>
         </div>
-    </div>
-    <div id="sobree" class="section container">
-        <div class="section-header">
-            <h2>O que é Fibromialgia?</h2>
-        </div>
-        <div class="content-grid">
-            <div class="text-block">
-                <p>A fibromialgia é uma síndrome clínica que se manifesta com dor no corpo todo, principalmente
-                    na musculatura. Junto com a dor, a fibromialgia cursa com sintomas de fadiga (cansaço), sono
-                    não reparador (a pessoa acorda cansada) e outros sintomas como alterações de memória e
-                    atenção, ansiedade, depressão e alterações intestinais.</p>
+    </section>
+
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que é Fibromialgia?</h2>
             </div>
-            <div class="cardss">
+            <div class="info-block">
+                <p>A fibromialgia é uma síndrome clínica que se manifesta com dor no corpo todo, principalmente na
+                    musculatura. Junto com a dor, cursa com fadiga, sono não reparador e alterações de memória.</p>
+            </div>
+
+            <div class="cards-grid">
                 @for (item of cards; track $index) {
-                <div class="cardd">
-                    <span class="material-symbols-outlined">
-                        {{item.icon}}
-                    </span>
+                <div class="info-card">
+                    <span class="material-symbols-outlined">{{item.icon}}</span>
                     <h5>{{item.h5}}</h5>
                     <p>{{item.p}}</p>
                 </div>
                 }
             </div>
         </div>
-    </div>
-    <div class="caution">
-        <span class="material-symbols-outlined">
-            error
-        </span>
-        <p>É importante lembrar que cada pessoa com fibromialgia é única, e os sintomas podem variar em intensidade e
-            apresentação. O diagnóstico deve ser feito por um profissional de saúde qualificado, e o tratamento é
-            individualizado.</p>
-    </div>
-    <div class="points">
-        <h2>Por que fazer parte da nossa comunidade?</h2>
-        <p class="p">Oferecemos um espaço seguro e acolhedor onde você encontra apoio, informação e compreensão.</p>
+    </section>
 
-        <div class="points-grid">
-            @for (item of point; track $index) {
-            <div class="point">
-                <span class="material-symbols-outlined">
-                    {{item.icon}}
-                </span>
-                <h5>{{item.h5}}
-                </h5>
-                <p class="pp">{{item.p}}
-                </p>
+    <section class="alert-section">
+        <div class="container">
+            <div class="alert-box">
+                <span class="material-symbols-outlined">error</span>
+                <p>É importante lembrar que cada pessoa com fibromialgia é única. O diagnóstico deve ser feito por um
+                    profissional de saúde qualificado.</p>
             </div>
-            }
         </div>
-        <div class="community">
-            <div class="photos">
-                <img src="assets/pexels-fotios-photos-31081252.jpg" alt="">
-            </div>
-            <div class="community-explain">
+    </section>
 
-                <div class="community-info">
-                    <span>Nossa Comunidade</span>
-                    <p class="jorney">Você não está sozinho nessa jornada</p>
-                    <p>Nossa comunidade é formada por milhares de pessoas que enfrentam a fibromialgia diariamente. Aqui
-                        você pode compartilhar suas experiências, aprender com os outros e encontrar o apoio que
-                        precisa.</p>
+    <section class="community-section">
+        <div class="container">
+            <div class="benefits-header">
+                <h2>Por que fazer parte da nossa comunidade?</h2>
+                <p>Oferecemos um espaço seguro e acolhedor onde você encontra apoio.</p>
+            </div>
+
+            <div class="benefits-grid">
+                @for (item of point; track $index) {
+                <div class="benefit-item">
+                    <span class="material-symbols-outlined">{{item.icon}}</span>
+                    <h5>{{item.h5}}</h5>
+                    <p>{{item.p}}</p>
                 </div>
-                <ul>
-                    @for (item of community; track $index) {
-                    <li class="list">
-                        <span class="material-symbols-outlined">
-                            check
-                        </span>
-                        <div>
-                            <p>{{item.h5}}</p>
-                            <p>{{item.p}}</p>
-                        </div>
-                    </li>
-                    }
-                </ul>
-
+                }
             </div>
 
+            <div class="community-highlight">
+                <div class="highlight-image">
+                    <img src="assets/pexels-fotios-photos-31081252.jpg" alt="Nossa Comunidade">
+                </div>
+                <div class="highlight-content">
+                    <span class="tag">Nossa Comunidade</span>
+                    <h3>Você não está sozinho nessa jornada</h3>
+                    <p>Nossa comunidade é formada por milhares de pessoas que enfrentam a fibromialgia diariamente.</p>
+
+                    <ul class="check-list">
+                        @for (item of community; track $index) {
+                        <li class="check-item">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <div>
+                                <strong>{{item.h5}}</strong>
+                                <small>{{item.p}}</small>
+                            </div>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </main>
 <app-footer></app-footer>

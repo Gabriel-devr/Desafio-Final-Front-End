@@ -1,37 +1,34 @@
 <section class="right-side">
     <div class="logo">
-        <span class="material-symbols-outlined">
-            favorite
-        </span>
-        <p>Entre para continuar sua jornada</p>
+        <span class="material-symbols-outlined">favorite</span>
+        <p>Crie sua conta pessoal</p>
     </div>
-    <form>
+    <form (ngSubmit)="criarConta()">
         <div class="email-container info">
-            <label for="">Nome</label>
-            <input type="text" placeholder="Nome" name="" id="">
+            <label>Nome</label>
+            <input type="text" placeholder="Nome" name="nome" [(ngModel)]="dados.nome">
         </div>
         <div class="email-container info">
-            <label for="">Email</label>
-            <input type="email" placeholder="seu@email.com" name="" id="">
+            <label>Email</label>
+            <input type="email" placeholder="seu@email.com" name="email" [(ngModel)]="dados.email">
         </div>
 
         <div class="password-container info">
-            <label for="">Senha</label>
-            <input type="password" placeholder="********" name="" id="">
+            <label>Senha</label>
+            <input type="password" placeholder="********" name="senha" [(ngModel)]="dados.senha">
         </div>
+
         <div class="lgpd">
-            <input type="checkbox" name="" id="">
-
-            <label for="">Ao marcar esta caixa, declaro estar ciente e de acordo com os <a
-                    href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/lgpd/termo-de-uso">Termos de
-                    Uso</a> e autorizo o
-                uso
-                dos meus dados conforme descrito na Política de Privacidade da plataforma.</label>
-
+            <input type="checkbox" required id="lgpd">
+            <label for="lgpd">Ao marcar esta caixa, declaro estar ciente e de acordo com os <a href="#">Termos de
+                    Uso</a>.</label>
         </div>
 
-        <input (click)="login()" class="button" type="button" value="Entrar" name="" id="">
-
+        <input class="button" type="submit" value="Criar Conta">
     </form>
 
+    <div class="create-account" style="margin-top: 20px; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Já tem conta? <a routerLink="/login"
+                style="color: var(--primary);">Faça Login</a></p>
+    </div>
 </section>

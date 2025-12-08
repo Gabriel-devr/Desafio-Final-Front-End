@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                @for (post of posts; track $index) {
+                @for (post of posts; track post.id) {
                 <div class="card p-3">
                     <div class="d-flex justify-content-between mb-2">
                         <div class="d-flex gap-2">
@@ -80,6 +80,13 @@
                             </span>
                             <span>Compartilhar</span>
                         </button>
+
+                        @if (post.isUserCreated) {
+                        <button class="action-btn text-danger" (click)="excluirPost(post.id)" title="Excluir post">
+                            <span class="material-symbols-outlined icon-adjust">delete</span>
+                            <span>Excluir</span>
+                        </button>
+                        }
 
                     </div>
                 </div>

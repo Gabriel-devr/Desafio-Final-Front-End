@@ -26,7 +26,8 @@ export class ProfissionalComponent {
       foto: 'assets/pexels-gabby-k-7114420.jpg',
       telefone: '11999998888',
       email: 'helena@email.com',
-      verificado: true
+      verificado: true,
+      isUserCreated: false
     },
     {
       id: 2,
@@ -39,7 +40,8 @@ export class ProfissionalComponent {
       foto: '',
       telefone: '21999997777',
       email: 'marcos@email.com',
-      verificado: true
+      verificado: true,
+      isUserCreated: false
     },
     {
       id: 3,
@@ -52,7 +54,8 @@ export class ProfissionalComponent {
       foto: '',
       telefone: '11988888888',
       email: 'clara@email.com',
-      verificado: false
+      verificado: false,
+      isUserCreated: false
     },
     {
       id: 4,
@@ -65,7 +68,8 @@ export class ProfissionalComponent {
       foto: '',
       telefone: '71999996666',
       email: 'juliana.nutri@email.com',
-      verificado: true
+      verificado: true,
+      isUserCreated: false
     },
     {
       id: 5,
@@ -78,7 +82,8 @@ export class ProfissionalComponent {
       foto: '',
       telefone: '31999995555',
       email: 'roberto.psiq@email.com',
-      verificado: true
+      verificado: true,
+      isUserCreated: false
     },
     {
       id: 6,
@@ -91,7 +96,8 @@ export class ProfissionalComponent {
       foto: '',
       telefone: '41999994444',
       email: 'ana.fisio@email.com',
-      verificado: false
+      verificado: false,
+      isUserCreated: false
     },
     {
       id: 7,
@@ -104,7 +110,8 @@ export class ProfissionalComponent {
       foto: '',
       telefone: '21999993333',
       email: 'lucas.psi@email.com',
-      verificado: true
+      verificado: true,
+      isUserCreated: false
     },
     {
       id: 8,
@@ -117,7 +124,36 @@ export class ProfissionalComponent {
       foto: '',
       telefone: '51999992222',
       email: 'fernanda.reumato@email.com',
-      verificado: true
+      verificado: true,
+      isUserCreated: false
+    },
+    {
+      id: 9,
+      nome: 'Dr. Ricardo Neves',
+      especialidade: 'Reumatologista',
+      registro: 'CRM/PE 334455',
+      descricao: 'Tratamento de dor crônica com foco em melhora da qualidade de vida e redução de medicamentos.',
+      localizacao: 'Recife, PE',
+      avaliacao: 4.9,
+      foto: '',
+      telefone: '81999991111',
+      email: 'ricardo.neves@email.com',
+      verificado: true,
+      isUserCreated: false
+    },
+    {
+      id: 10,
+      nome: 'Dra. Patrícia Gomes',
+      especialidade: 'Nutricionista',
+      registro: 'CRN 99887',
+      descricao: 'Especialista em dietas funcionais e suplementação para redução de fadiga e dores.',
+      localizacao: 'Brasília, DF (Online)',
+      avaliacao: 4.8,
+      foto: '',
+      telefone: '61999990000',
+      email: 'patricia.nutri@email.com',
+      verificado: false,
+      isUserCreated: false
     }
   ];
 
@@ -142,7 +178,6 @@ export class ProfissionalComponent {
     this.exibirFormularioCadastro = !this.exibirFormularioCadastro;
 
     if (this.exibirFormularioCadastro) {
-
       setTimeout(() => {
         const formElement = document.getElementById('form-section');
         if (formElement) {
@@ -154,7 +189,6 @@ export class ProfissionalComponent {
 
   cadastrarServico() {
     if (!this.novoProfissional.nome || !this.novoProfissional.registro || !this.novoProfissional.telefone) {
-      alert('Por favor, preencha Nome, Registro e Telefone (WhatsApp) para que pacientes possam te contatar.');
       return;
     }
 
@@ -171,23 +205,18 @@ export class ProfissionalComponent {
       foto: '',
       telefone: this.limparTelefone(this.novoProfissional.telefone),
       email: this.novoProfissional.email || '',
-      verificado: false
+      verificado: false,
+      isUserCreated: true
     };
 
-
     this.profissionais.unshift(profissionalCompleto);
-
-    alert(`Parabéns, ${this.novoProfissional.nome}! Seu serviço foi divulgado na nossa rede.`);
     this.exibirFormularioCadastro = false;
     this.resetarFormulario();
-
-
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   contatar(profissional: Profissional) {
     if (!profissional.telefone) {
-      alert('Este profissional não disponibilizou um número de contato direto.');
       return;
     }
 
@@ -207,5 +236,9 @@ export class ProfissionalComponent {
       especialidade: 'Reumatologista',
       localizacao: ''
     };
+  }
+
+  excluirProfissional(id: number) {
+    this.profissionais = this.profissionais.filter(p => p.id !== id);
   }
 }

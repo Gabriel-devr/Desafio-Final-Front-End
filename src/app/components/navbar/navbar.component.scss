@@ -59,7 +59,6 @@
         border-bottom: 3px solid transparent;
         transition: all 0.2s;
 
-
         .material-symbols-outlined {
             font-size: 28px;
         }
@@ -67,7 +66,6 @@
         &:hover {
             background-color: #f0f2f5;
             border-radius: 8px;
-
         }
 
         &.active {
@@ -91,6 +89,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.2s;
+            white-space: nowrap;
         }
 
         &:hover .tooltip {
@@ -159,7 +158,6 @@
             }
 
             .dropdown-header {
-                // Estilo cartão de visita
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
                 padding: 10px;
                 border-radius: 8px;
@@ -226,6 +224,43 @@
 
 @media (max-width: 768px) {
     .center-section {
-        display: none;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: white;
+        border-top: 1px solid #e0e0e0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        justify-content: space-around;
+        padding: 0;
+
+        .nav-item {
+            width: 100%;
+            max-width: none;
+            border-radius: 0;
+            border-bottom: none;
+            border-top: 3px solid transparent;
+
+            &:hover {
+                background-color: transparent;
+            }
+
+            &.active {
+                border-bottom: none;
+                border-top: 3px solid var(--primary);
+                color: var(--primary);
+            }
+
+            .tooltip {
+                display: none;
+            }
+        }
+    }
+
+    .left-section .logo {
+        font-size: 1.4rem;
     }
 }

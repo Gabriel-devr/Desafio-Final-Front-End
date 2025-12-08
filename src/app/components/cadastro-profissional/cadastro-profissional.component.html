@@ -1,54 +1,53 @@
 <section class="right-side">
     <div class="logo">
-        <span class="material-symbols-outlined">
-            favorite
-        </span>
-        <p>Entre para continuar sua jornada</p>
+        <span class="material-symbols-outlined">favorite</span>
+        <p>Crie sua conta profissional</p>
     </div>
-    <form>
+    <form (ngSubmit)="criarConta()">
         <div class="email-container info">
-            <label for="">Nome</label>
-            <input type="text" placeholder="ex: Eduardo Lifter Bragança" name="" id="">
+            <label>Nome</label>
+            <input type="text" placeholder="Ex: Dr. Eduardo" name="nome" [(ngModel)]="dados.nome">
         </div>
+
         <div class="select-info">
             <div class="select">
-                <label for="">Especialidade</label>
-                <select name="" id="">
-                    <option value="" selected>Escolha</option>
-                    <option value="">Reumatologista</option>
-                    <option value="">Psicólogos</option>
-                    <option value="">Psiquiatra</option>
-                    <option value="">Fisioterapeuta</option>
-                    <option value="">Nutricionista</option>
+                <label>Especialidade</label>
+                <select name="especialidade" [(ngModel)]="dados.especialidade">
+                    <option value="" disabled selected>Escolha</option>
+                    <option value="Reumatologista">Reumatologista</option>
+                    <option value="Psicólogo">Psicólogo</option>
+                    <option value="Psiquiatra">Psiquiatra</option>
+                    <option value="Fisioterapeuta">Fisioterapeuta</option>
+                    <option value="Nutricionista">Nutricionista</option>
                 </select>
             </div>
             <div class="info text-infor">
-                <label for="">N Conselho</label>
-                <input placeholder="CRP/CREFITO/CRM" type="text" name="" id="">
+                <label>Registro</label>
+                <input placeholder="CRM/CRP..." type="text" name="registro" [(ngModel)]="dados.registro">
             </div>
         </div>
+
         <div class="email-container info">
-            <label for="">Email</label>
-            <input type="email" placeholder="seu@email.com" name="" id="">
+            <label>Email</label>
+            <input type="email" placeholder="seu@email.com" name="email" [(ngModel)]="dados.email">
         </div>
 
         <div class="password-container info">
-            <label for="">Senha</label>
-            <input type="password" placeholder="********" name="" id="">
+            <label>Senha</label>
+            <input type="password" placeholder="********" name="senha" [(ngModel)]="dados.senha">
         </div>
+
         <div class="lgpd">
-            <input type="checkbox" name="" id="">
-
-            <label for="">Ao marcar esta caixa, declaro estar ciente e de acordo com os <a
-                    href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/lgpd/termo-de-uso">Termos de
-                    Uso</a> e autorizo o
-                uso
-                dos meus dados conforme descrito na Política de Privacidade da plataforma.</label>
-
+            <input type="checkbox" required id="lgpd-pro">
+            <label for="lgpd-pro">Ao marcar esta caixa, declaro estar ciente e de acordo com os <a href="#">Termos de
+                    Uso</a>.</label>
         </div>
 
-        <input (click)="login()" class="button" type="button" value="Entrar" name="" id="">
-
+        <input class="button" type="submit" value="Criar Conta">
     </form>
 
+    <div class="create-account" style="margin-top: 20px; text-align: center;">
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Já tem conta? <a routerLink="/login"
+                style="color: var(--primary);">Faça Login</a></p>
+    </div>
 </section>

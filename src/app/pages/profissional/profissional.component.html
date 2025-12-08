@@ -91,6 +91,7 @@
                         <span>{{ pro.nome.charAt(0) }}</span>
                         }
                     </div>
+
                     <div class="info">
                         <div class="name-row">
                             <h3>{{ pro.nome }}</h3>
@@ -102,9 +103,19 @@
                         <span class="specialty">{{ pro.especialidade }}</span>
                         <span class="registry">{{ pro.registro }}</span>
                     </div>
-                    <div class="rating">
-                        <span class="material-symbols-outlined star">star</span>
-                        <span>{{ pro.avaliacao }}</span>
+
+                    <div class="d-flex flex-column align-items-end gap-2">
+                        @if (pro.isUserCreated) {
+                        <button class="btn text-danger p-0" (click)="excluirProfissional(pro.id)"
+                            title="Remover Profissional">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+                        </button>
+                        }
+
+                        <div class="rating">
+                            <span class="material-symbols-outlined star">star</span>
+                            <span>{{ pro.avaliacao }}</span>
+                        </div>
                     </div>
                 </div>
 

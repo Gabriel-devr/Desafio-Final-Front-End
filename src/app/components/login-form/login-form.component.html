@@ -1,42 +1,47 @@
-<section class="right-side">
-    <span id="login" class="material-symbols-outlined">
-        favorite
-    </span>
-    <p>Entre para continuar sua jornada</p>
-    <form>
-        <div class="email-container info">
-            <label for="">Email</label>
-            <input type="email" placeholder="seu@email.com" name="" id="">
+<div class="login-card">
+    <div class="login-header">
+        <span class="material-symbols-outlined logo-icon">favorite</span>
+        <h2>Entre para continuar</h2>
+        <p>Sua jornada de cuidado começa aqui</p>
+    </div>
+
+    <form (ngSubmit)="fazerLogin()" class="login-form">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="user@email.com" required>
         </div>
 
-        <div class="password-container info">
-            <label for="">Senha</label>
-            <input type="password" placeholder="********" name="" id="">
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" [(ngModel)]="senha" name="senha" placeholder="******" required>
         </div>
 
-        <div class="checkbox-container">
-            <div>
-                <input type="checkbox" name="" id=""> <label for="">Lembrar-me</label>
-            </div>
-            <p>Esqueci minha Senha</p>
+        @if (erroLogin) {
+        <div class="error-msg">Email ou senha incorretos.</div>
+        }
+
+        <div class="form-options">
+            <label class="remember-me">
+                <input type="checkbox" name="lembrar" id="lembrar">
+                Lembrar-me
+            </label>
+            <a href="#" class="forgot-pass">Esqueci a senha</a>
         </div>
-        <input (click)="login()" class="button" type="button" value="Entrar" name="" id="">
+
+        <button type="submit" class="btn-submit">Entrar</button>
     </form>
-    <div class="continue">
-        <p>
-            ou continue com
-        </p>
-        <hr>
+
+    <div class="divider">
+        <span>ou continue com</span>
     </div>
 
+    <button class="btn-google">
+        <img src="assets/google.png" alt="Google">
+        Google
+    </button>
 
-    <div class="google-container">
-        <img src="assets/google.png" alt="">
-        <p>Google</p>
+    <div class="register-link">
+        <p>Não tem conta? <a routerLink="cadastro-pessoal">Criar Conta</a></p>
+        <p>É especialista? <a routerLink="cadastro-profissional">Área Profissional</a></p>
     </div>
-
-    <div class="create-account">
-        <p>Não tem uma conta? <a routerLink="cadastro-pessoal">Criar Conta</a></p>
-        <p>Faça uma conta <a routerLink="cadastro-profissional">profissional</a></p>
-    </div>
-</section>
+</div>

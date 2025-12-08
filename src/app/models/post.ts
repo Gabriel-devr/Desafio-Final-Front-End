@@ -1,4 +1,5 @@
 export interface Post {
+    id: number;
     autor: string;
     avatar: string;
     avatarCor: string;
@@ -7,4 +8,5 @@ export interface Post {
     likes: number;
     comentarios: number;
     liked: boolean;
+    isUserCreated?: boolean;
 }

@@ -7,7 +7,7 @@
         </header>
 
         <div class="cards-grid">
-            @for (item of encontros; track $index) {
+            @for (item of encontros; track item.id) {
             <article class="card">
                 <div class="card-image" [style.background-color]="item.cor"
                     [style.background-image]="item.imagem ? 'url(' + item.imagem + ')' : 'none'"
@@ -33,9 +33,18 @@
                         {{ item.local }}
                     </p>
 
-                    <button class="btn-participar">
-                        Participar
-                    </button>
+                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                        <button class="btn-participar">
+                            Participar
+                        </button>
+
+                        @if (item.isUserCreated) {
+                        <button class="btn btn-link text-danger p-0" (click)="excluirEncontro($index)"
+                            title="Remover evento">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                        }
+                    </div>
                 </div>
             </article>
             }

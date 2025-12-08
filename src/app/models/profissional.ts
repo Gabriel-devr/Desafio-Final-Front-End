@@ -10,4 +10,5 @@ export interface Profissional {
     telefone: string;
     email: string;
     verificado: boolean;
+    isUserCreated?: boolean;
 }

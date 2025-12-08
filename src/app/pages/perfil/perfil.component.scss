@@ -1,4 +1,3 @@
-// Layout Base
 .background {
     min-height: 100vh;
     background-color: var(--bg-body);
@@ -6,7 +5,6 @@
     padding-top: 20px;
 }
 
-// Cabeçalho com Gradiente (Estilo App Health)
 .profile-header {
     background: linear-gradient(135deg, var(--primary) 0%, #7b1fa2 100%);
     border-radius: 24px;
@@ -64,12 +62,10 @@
     }
 }
 
-// Container principal sobe um pouco para sobrepor o header
 .container {
     margin-top: 0;
 }
 
-// Cards Gerais
 .card {
     background: white;
     border-radius: 16px;
@@ -77,7 +73,7 @@
     border: none;
 }
 
-// Seletor de Humor
+
 .mood-selector {
     display: flex;
     justify-content: space-between;
@@ -113,7 +109,6 @@
     }
 }
 
-// Lista de Histórico (Timeline Style)
 .history-list {
     display: flex;
     flex-direction: column;
@@ -126,7 +121,7 @@
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    border-left: 4px solid transparent; // Borda colorida opcional
+    border-left: 4px solid transparent;
     transition: transform 0.2s;
 
     &:hover {
@@ -178,7 +173,7 @@
     }
 }
 
-// Animação de entrada
+
 .fade-in {
     animation: fadeIn 0.5s ease-in;
 }
@@ -195,7 +190,6 @@
     }
 }
 
-// Mobile Adjustments
 @media (max-width: 768px) {
     .profile-header {
         flex-direction: column;
@@ -215,24 +209,22 @@
 .carousel-container {
     display: flex;
     gap: 16px;
-    overflow-x: auto; // Permite rolagem horizontal
-    padding-bottom: 10px; // Espaço para não cortar sombra
+    overflow-x: auto;
+    padding-bottom: 10px;
     padding-left: 5px;
     padding-right: 5px;
     scroll-behavior: smooth;
-
-    // Esconde a barra de rolagem (Estética clean)
-    scrollbar-width: none; // Firefox
+    scrollbar-width: none;
 
     &::-webkit-scrollbar {
         display: none;
     }
 
-    // Chrome/Safari
+
 }
 
 .appointment-card {
-    flex: 0 0 auto; // Não encolhe nem estica
+    flex: 0 0 auto;
     width: 200px;
     height: 140px;
     background: white;
@@ -250,9 +242,8 @@
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
 
-    // Estilo específico do Card de Lista
     &.item-card {
-        border-left: 4px solid #ccc; // Cor padrão, muda via inline style
+        border-left: 4px solid #ccc;
     }
 
     .card-top {
@@ -292,15 +283,14 @@
     }
 }
 
-// --- CARD DE ADICIONAR (INTERATIVO) ---
 .add-card {
-    border: 2px dashed var(--primary-light); // Borda tracejada
-    background-color: rgba(var(--primary-rgb), 0.02); // Fundo super leve se possível, ou branco
+    border: 2px dashed var(--primary-light);
+    background-color: rgba(var(--primary-rgb), 0.02);
     cursor: pointer;
     justify-content: center;
     align-items: center;
 
-    // Estado normal (Botão +)
+
     .add-content {
         text-align: center;
         width: 100%;
@@ -325,16 +315,16 @@
         }
     }
 
-    // Estado Expandido (Formulário)
+
     &.expanded {
-        width: 280px; // Fica mais largo para caber o form
-        height: auto; // Altura automática
+        width: 280px;
+        height: auto;
         border-style: solid;
         border-color: var(--primary);
         cursor: default;
         justify-content: flex-start;
         align-items: stretch;
-        z-index: 2; // Fica acima se houver sobreposição visual
+        z-index: 2;
     }
 
     .form-content {
